@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Netlify</title>
+	<title>Bingebox</title>
 	<link href="css/bootstrap.min.css" rel="stylesheet" >
 	<link href="css/font-awesome.min.css" rel="stylesheet" >
 	<link href="css/global.css" rel="stylesheet">
@@ -152,6 +152,7 @@ alteration in some form by injected humour or randomised words.</p>
 </section>
 
 <section id="upcome" class="p_3 bg-light">
+	<div id="weather" style="font-family: sans-serif; margin: 1rem 0;"></div>
  <div class="container-xl">
   <div class="row upcome_1 text-center">
    <div class="col-md-12">
@@ -936,6 +937,37 @@ alteration in some form by injected humour or randomised words.</p>
 </section>
 
 <script>
+  async function getWeather(city = "Nashville") {
+    try {
+      // Calls your serverless function (keeps your key private)
+      const res = await fetch(`/.netlify/functions/weather?city=${encodeURIComponent(city)}`);
+      const data = await res.json();
+
+      console.log("Weather data:", data);
+
+      // Example: Display temp in Kelvin (OWM default). Convert as needed:
+      // Kelvin to Fahrenheit: (K - 273.15) * 9/5 + 32
+      const kelvin = data?.main?.temp;
+      if (kelvin) {
+        const f = (kelvin - 273.15) * 9/5 + 32;
+        document.getElementById("weather").textContent =
+          `Current temp in ${city}: ${Math.round(f)} °F`;
+      } else {
+        document.getElementById("weather").textContent =
+          `Could not load weather for ${city}.`;
+      }
+    } catch (e) {
+      console.error(e);
+      document.getElementById("weather").textContent =
+        "Error loading weather.";
+    }
+  }
+
+  // Run it once on load
+  getWeather("Nashville");
+</script>
+
+<script>
 window.onscroll = function() {myFunction()};
 
 var navbar_sticky = document.getElementById("navbar_sticky");
@@ -961,5 +993,6 @@ function myFunction() {
     });
 </script>
 </body>
+
 
 </html>
