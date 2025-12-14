@@ -10,7 +10,7 @@ export async function handler(event, context) {
     const city = event.queryStringParameters.city || "Nashville";
 
     // Call OpenWeatherMap using the server-side key
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${API_KEY}`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&units=imperial&appid=${API_KEY}`;
 
     const response = await fetch(url);
     const data = await response.json();
