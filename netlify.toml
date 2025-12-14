@@ -1,0 +1,9 @@
+[build]
+# If you have a build step (like npm run build), put it here. For a plain HTML site, leave it empty.
+# command = ""
+
+# Your site root if needed (defaults to repository root)
+# publish = "."
+
+[functions]
+directory = "netlify/functions"
