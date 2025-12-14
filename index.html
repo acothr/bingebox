@@ -936,36 +936,31 @@ alteration in some form by injected humour or randomised words.</p>
  </div>
 </section>
 
+
 <script>
   async function getWeather(city = "Nashville") {
+    const el = document.getElementById("weather");
     try {
-      // Calls your serverless function (keeps your key private)
       const res = await fetch(`/.netlify/functions/weather?city=${encodeURIComponent(city)}`);
       const data = await res.json();
 
-      console.log("Weather data:", data);
-
-      // Example: Display temp in Kelvin (OWM default). Convert as needed:
-      // Kelvin to Fahrenheit: (K - 273.15) * 9/5 + 32
-      const kelvin = data?.main?.temp;
-      if (kelvin) {
-        const f = (kelvin - 273.15) * 9/5 + 32;
-        document.getElementById("weather").textContent =
-          `Current temp in ${city}: ${Math.round(f)} °F`;
-      } else {
-        document.getElementById("weather").textContent =
-          `Could not load weather for ${city}.`;
+      if (!res.ok) {
+        el.textContent = `Error: ${data?.error || "Unknown"} — details: ${JSON.stringify(data?.data || data)}`;
+        return;
       }
+
+      const tempF = data?.main?.temp;
+      el.textContent = (typeof tempF === "number")
+        ? `Current temp in ${city}: ${Math.round(tempF)} °F`
+        : `Could not load weather for ${city}.`;
     } catch (e) {
+      el.textContent = "Network or server error.";
       console.error(e);
-      document.getElementById("weather").textContent =
-        "Error loading weather.";
     }
   }
-
-  // Run it once on load
   getWeather("Nashville");
 </script>
+
 
 <script>
 window.onscroll = function() {myFunction()};
@@ -996,3 +991,4 @@ function myFunction() {
 
 
 </html>
+
