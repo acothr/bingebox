@@ -10,7 +10,7 @@ Licence: <a href="https://www.templateonweb.com/license">Website Template Licenc
 text-align:left;
 background:#0000005e;
 padding:30px 20px;
-bottom: 4rem;
+bottom: 8rem;
 left: 50%;
 width:40%;
 color:#fff;
@@ -265,5 +265,6 @@ min-height:330px;
 @media (min-width:1201px) and (max-width:1255px) {
 
  }
+
 
 
