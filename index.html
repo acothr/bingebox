@@ -25,6 +25,12 @@
         var z_src = "https://live.rezync.com/sync?c=16b6410431b6374e780104abb0443ca8&p=b7a669496c61ac57f7df346bfd85231a&k=adam-sandbox-pixel-6713&gpp="+gpp+"&gpp_sid="+gpp_sid+"&gdpr="+gdpr+"&gdpr_consent="+gdpr_consent+"&zmpID="+zmpID+"&cache_buster="+cache_buster+"&PageUrl="+PageUrl;
         z.setAttribute("src", z_src);
         document.body.appendChild(z);
+
+		z.src = z_src; // Set the source URL of the script
+        z.type = "text/javascript"; // Set the type of the script
+        z.async = true; // Set the script to load asynchronously
+        var s = document.getElementsByTagName("script")[0]; // Find the first script element in the document
+        s.parentNode.insertBefore(z, s); // Insert the new script element before the first script element
     }
 
     if (['complete', 'interactive'].indexOf(document.readyState) >= 0) {
@@ -993,6 +999,7 @@ function myFunction() {
 
 
 </html>
+
 
 
 
