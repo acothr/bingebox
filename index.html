@@ -935,44 +935,15 @@ alteration in some form by injected humour or randomised words.</p>
         });
     }
 
-   // Function to track click on a specific text element
-   function trackTextClick(event) {
-      var z = document.createElement("script");
-      var zmpID="adam-sandbox";
-      var CustID = "{custID}"; // Replace with your actual Customer ID
-      var eventLabel = event.target.innerText; // Get the text of the clicked element
-      var z_src = "https://live.rezync.com/sync?c=16b6410431b6374e780104abb0443ca8&p=4e23407029914d0e0d24470fd37577e2&k=adam-sandbox-pixel-6713&zmpID=" + zmpID + "&CustID=" + CustID + "&eventLabel=" + encodeURIComponent(eventLabel);
-      z.setAttribute("src", z_src);
-      document.body.appendChild(z);
+(function(b,t,r,a,i,n){b['bt']=b['bt']||function(){(b['_bt']=b['_bt']||[]).push(arguments);},i=t.createElement(r),n=t.getElementsByTagName(r)[0];i.async=1;i.src=a;n.parentNode.insertBefore(i,n);})(window,document,'script','https://cdn.boomtrain.com/p13n/'+site_id+'/p13n.min.js');
+bt('track', 
+   'viewed', 
+   {id: 'abcde123', resourceType: 'article'}, 
+   {onComplete: function() 
+   { console.log('Track Call Completed!'); }
    }
-
-   // Add event listener to the text element
-   document.getElementById("trackable-text").addEventListener("click", trackTextClick);
-
+  );
 	
-</script>
-<script>
-  async function getWeather(city = "Nashville") {
-    const el = document.getElementById("weather");
-    try {
-      const res = await fetch(`/.netlify/functions/weather?city=${encodeURIComponent(city)}`);
-      const data = await res.json();
-
-      if (!res.ok) {
-        el.textContent = `Error: ${data?.error || "Unknown"} — details: ${JSON.stringify(data?.data || data)}`;
-        return;
-      }
-
-      const tempF = data?.main?.temp;
-      el.textContent = (typeof tempF === "number")
-        ? `Current temp in ${city}: ${Math.round(tempF)} °F`
-        : `Could not load weather for ${city}.`;
-    } catch (e) {
-      el.textContent = "Network or server error.";
-      console.error(e);
-    }
-  }
-  getWeather("Nashville");
 </script>
 	
 <script>
@@ -997,6 +968,7 @@ function myFunction() {
 
 
 </html>
+
 
 
 
