@@ -196,7 +196,7 @@ alteration in some form by injected humour or randomised words.</p>
 		     <div class="upcome_2i_lasti row">
 			  <div class="col-md-9 col-9">
 			   <div class="upcome_2i_lastil">
-			    <h5><a href="#" id="lego-button">Eget Nulla</a></h5>
+			    <h5><a href="#" id="trackButton">Eget Nulla</a></h5>
 				<h6 class="text-muted">Drama, Action</h6>
 				<span class="col_red">
 				 <i class="fa fa-star"></i>
@@ -961,7 +961,24 @@ alteration in some form by injected humour or randomised words.</p>
   getWeather("Nashville");
 </script>
 
-
+<script>
+    if (['complete', 'interactive'].indexOf(document.readyState) >= 0) {
+        zync_call();
+    } else {
+        window.addEventListener("DOMContentLoaded", function(){
+            zync_call();
+        });
+    }
+</script>
+ document.addEventListener("DOMContentLoaded", function() {
+        var button = document.getElementById("trackButton");
+        if (button) {
+            button.addEventListener("click", function() {
+                zync_call();
+            });
+        }
+</script>
+	
 <script>
 window.onscroll = function() {myFunction()};
 
@@ -984,5 +1001,6 @@ function myFunction() {
 
 
 </html>
+
 
 
