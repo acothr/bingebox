@@ -936,6 +936,26 @@ alteration in some form by injected humour or randomised words.</p>
  </div>
 </section>
 
+	<script>
+  async function triggerP13nPixel(userId, event = "page_view") {
+    const el = document.getElementById("p13n-status");
+    try {
+      const res = await fetch(`/.netlify/functions/bt?userId=${encodeURIComponent(userId)}&event=${encodeURIComponent(event)}`);
+      const data = await res.json();
+
+      if (!res.ok) {
+        el.textContent = `Error: ${data?.error || "Unknown"} — details: ${JSON.stringify(data?.data || data)}`;
+        return;
+      }
+
+      el.textContent = `P13N pixel triggered for user ${userId} with event ${event}.`;
+    } catch (e) {
+      el.textContent = "Network or server error.";
+      console.error(e);
+    }
+  }
+
+</script>
 
 <script>
   async function getWeather(city = "Nashville") {
@@ -993,6 +1013,7 @@ function myFunction() {
 
 
 </html>
+
 
 
 
