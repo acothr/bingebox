@@ -27,6 +27,24 @@
         document.body.appendChild(z);
     }
 
+	function bt(eventType, properties, settings = {}) {
+            // Example implementation of the bt function
+            console.log("Tracking event:", eventType, properties, settings);
+            // Here you would add the event to a queue or buffer
+        }
+
+        // Example usage
+        document.addEventListener('DOMContentLoaded', function() {
+            bt('page_view', { page: window.location.pathname });
+            zync_call();
+        });
+
+        document.getElementById('trackButton').addEventListener('click', function() {
+            bt('track', 'button_click', { buttonId: 'trackButton' });
+            zync_call();
+        });
+
+	
     if (['complete', 'interactive'].indexOf(document.readyState) >= 0) {
         zync_call();
     } else {
@@ -959,16 +977,6 @@ alteration in some form by injected humour or randomised words.</p>
   }
   getWeather("Nashville");
 </script>
-
-<script>
- document.addEventListener("DOMContentLoaded", function() {
-        var button = document.getElementById("trackButton");
-        if (button) {
-            button.addEventListener("click", function() {
-                zync_call();
-            });
-        }
-</script>
 	
 <script>
 window.onscroll = function() {myFunction()};
@@ -992,6 +1000,7 @@ function myFunction() {
 
 
 </html>
+
 
 
 
