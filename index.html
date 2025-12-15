@@ -962,14 +962,6 @@ alteration in some form by injected humour or randomised words.</p>
 </script>
 
 <script>
-    if (['complete', 'interactive'].indexOf(document.readyState) >= 0) {
-        zync_call();
-    } else {
-        window.addEventListener("DOMContentLoaded", function(){
-            zync_call();
-        });
-    }
-</script>
  document.addEventListener("DOMContentLoaded", function() {
         var button = document.getElementById("trackButton");
         if (button) {
@@ -1001,6 +993,7 @@ function myFunction() {
 
 
 </html>
+
 
 
 
