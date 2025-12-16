@@ -944,9 +944,23 @@ alteration in some form by injected humour or randomised words.</p>
     }
 (function(b,t,r,a,i,n){b['bt']=b['bt']||function(){(b['_bt']=b['_bt']||[]).push(arguments);},i=t.createElement(r),n=t.getElementsByTagName(r)[0];i.async=1;i.src=a;n.parentNode.insertBefore(i,n);})(window,document,'script','https://cdn.boomtrain.com/p13n/adam-sandbox/p13n.min.js');
 
-var email = document.querySelector('#emailInput').value;
-bt('updateUser', {email:email});
-bt('track', 'landing_signup');
+// Function to handle the sign-up event
+function handleSignup() {
+	var email = document.querySelector('#emailInput').value;
+
+	// Log the email to the console for debugging
+	console.log('email:', email);
+
+	if (email) {
+		bt('updateUser', {email: email});
+		bt('track', 'landing_signup');
+	} else {
+		console.error('Email is undefined or empty');
+	}
+}
+
+// Add event listener to the sign-up button
+document.querySelector('#signupButton').addEventListener('click', handleSignup);
 	
 </script>
 	
@@ -972,5 +986,6 @@ function myFunction() {
 
 
 </html>
+
 
 
