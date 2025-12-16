@@ -970,41 +970,11 @@ alteration in some form by injected humour or randomised words.</p>
             zync_call();
         });
     }
-
-var siteID = 'adam-sandbox';
-
-// bt function here
-    
-    n.parentNode.insertBefore(i,n);
-})(window, document, 'script', 'https://cdn.boomtrain.com/p13n/' + siteID + '/p13n.min.js');
-
-function setupClickTracking() {
-    // Track all elements with 'track-click' class
-    var trackableElements = document.querySelectorAll('.track-click');
-    
-    trackableElements.forEach(function(element) {
-        element.addEventListener('click', function(event) {
-            // Get element details for identification
-            var elementData = {
-                id: event.target.getAttribute('data-track-id') || event.target.id || 'unknown-' + Date.now(),
-                resourceType: event.target.getAttribute('data-track-type') || event.target.tagName.toLowerCase(),
-                elementText: event.target.textContent.trim(),
-                elementClass: event.target.className,
-                elementTag: event.target.tagName.toLowerCase(),
-                elementHref: event.target.href || null,
-                customData: event.target.getAttribute('data-track-custom') || null
-            };
-            
-            bt('track', 
-               'clicked', 
-               elementData, 
-               {onComplete: function() { 
-                   console.log('Click Tracked:', elementData.id, '- Text:', elementData.elementText); 
-               }}
-            );
-        });
-    });
-}	
+	
+const userData = {email: uid};
+console.log('User data:', userData);
+console.log('uid:', uid);
+bt('updateUser', userData);
 	
 </script>
 	
@@ -1030,6 +1000,7 @@ function myFunction() {
 
 
 </html>
+
 
 
 
