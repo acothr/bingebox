@@ -970,7 +970,20 @@ alteration in some form by injected humour or randomised words.</p>
             zync_call();
         });
     }
-	
+
+	(function(b,t,r,a,i,n){
+    b['bt'] = b['bt'] || function(){
+        (b['_bt'] = b['_bt'] || []).push(arguments);
+    };
+    i = t.createElement(r);
+    n = t.getElementsByTagName(r)[0];
+    i.async = 1;
+    i.src = a;
+    
+    i.onload = function() {
+        setupClickTracking();
+    };
+		
 const userData = {email: uid};
 console.log('User data:', userData);
 console.log('uid:', uid);
@@ -1000,6 +1013,7 @@ function myFunction() {
 
 
 </html>
+
 
 
 
