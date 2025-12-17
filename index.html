@@ -878,8 +878,13 @@ function setupClickTracking(user_id) {
             // Get element details for identification
             var elementData = {
                 id: element.id,
-                class: element.className,
-                text: element.innerText,
+                resourceType: event.target.getAttribute('data-track-type') || event.target.tagName.toLowerCase(),
+                elementText: event.target.textContent.trim(),
+                elementClass: event.target.className,
+                elementTag: event.target.tagName.toLowerCase(),
+                elementHref: event.target.href || null,
+                customData: event.target.getAttribute('data-track-custom') || null
+
                 user_id: 'adamatzeta+01@gmail.com' // Add user_id to the elementData
             };
 
@@ -929,6 +934,7 @@ function myFunction() {
 
 
 </html>
+
 
 
 
