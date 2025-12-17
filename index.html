@@ -860,8 +860,7 @@ function setupClickTracking(user_id) {
             console.log('Element clicked:', elementData);
 
             // Track the click event
-            // bt('track', 'element_click', elementData, {user_id: 'adamatzeta+01@gmail.com'});
-			bt('track', 'signed_up', {"unique_client_id":{"name":"subscriber_id", "value":"A00001"}});
+            bt('track', 'element_click', elementData, {user_id: 'adamatzeta+01@gmail.com'});
         });
     });
 }
@@ -903,6 +902,7 @@ function myFunction() {
 
 
 </html>
+
 
 
 
