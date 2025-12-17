@@ -105,10 +105,10 @@ transform: scale3d(1.05,1.05,1);
 color: #f5cbcb;
  }
 .col_red{
-color: #ff4444;
+color: #e3601c;
  }
 .bg_red{
-background: #ff4444; 
+background: #e3601c; 
  }
 .bg_light{
 background: #0000005e;
@@ -193,7 +193,7 @@ width: 100%;
 z-index:3;
 padding-top:10px;
 padding-bottom:10px;
-background-color: #ff4444;
+background-color: #e3601c;
 }
 .sticky {
 top: -40px;
@@ -674,5 +674,6 @@ width:150px;
 padding: 10px 12px;
 }
  }
+
 
 
