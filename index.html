@@ -853,7 +853,6 @@ function setupClickTracking(user_id) {
                 id: element.id,
                 class: element.className,
                 text: element.innerText,
-                user_id: email // Add user_id to the elementData
             };
 
             // Log the click event for debugging
@@ -883,9 +882,7 @@ function setupClickTracking(user_id) {
                 elementClass: event.target.className,
                 elementTag: event.target.tagName.toLowerCase(),
                 elementHref: event.target.href || null,
-                customData: event.target.getAttribute('data-track-custom') || null,
-
-                user_id: 'adamatzeta+01@gmail.com' // Add user_id to the elementData
+                customData: event.target.getAttribute('data-track-custom') || null
             };
 
             // Log the click event for debugging
@@ -934,6 +931,7 @@ function myFunction() {
 
 
 </html>
+
 
 
 
