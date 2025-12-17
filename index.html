@@ -853,14 +853,14 @@ function setupClickTracking(user_id) {
                 id: element.id,
                 class: element.className,
                 text: element.innerText,
-                user_id: user_id // Add user_id to the elementData
+                user_id: 'adamatzeta+01@gmail.com' // Add user_id to the elementData
             };
 
             // Log the click event for debugging
             console.log('Element clicked:', elementData);
 
             // Track the click event
-            bt('track', 'element_click', elementData);
+            bt('track', 'element_click', elementData, {user_id: 'adamatzeta+01@gmail.com'});
         });
     });
 }
@@ -902,6 +902,7 @@ function myFunction() {
 
 
 </html>
+
 
 
 
