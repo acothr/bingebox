@@ -826,53 +826,56 @@ var siteID = 'adam-sandbox'
 
 // Function to handle the sign-up event
 function handleSignup() {
-	var email = document.querySelector('#emailInput').value;
+    var email = document.querySelector('#emailInput').value;
 
-	// Log the email to the console for debugging
-	console.log('email:', email);
+    // Log the email to the console for debugging
+    console.log('email:', email);
 
-	if (email) {
-		bt('updateUser', {email: email});
-		bt('track', 'landing_signup');
-	} else {
-		console.error('Email is undefined or empty');
-	}
+    if (email) {
+        bt('updateUser', { email: email });
+        bt('track', 'landing_signup');
+    } else {
+        console.error('Email is undefined or empty');
+    }
 }
 
 // Add event listener to the sign-up button
 document.querySelector('#submit').addEventListener('click', handleSignup);
-	
-n.parentNode.insertBefore(i,n);
-})(window, document, 'script', 'https://cdn.boomtrain.com/p13n/' + siteID + '/p13n.min.js');
 
+// Function to setup click tracking
 function setupClickTracking() {
     // Track all elements with 'track-click' class
     var trackableElements = document.querySelectorAll('.track-click');
-    
-    trackableElements.forEach(function(element) {
-        element.addEventListener('click', function(event) {
+
+    trackableElements.forEach(function (element) {
+        element.addEventListener('click', function (event) {
             // Get element details for identification
             var elementData = {
-                id: event.target.getAttribute('data-track-id') || event.target.id || 'unknown-' + Date.now(),
-                resourceType: event.target.getAttribute('data-track-type') || event.target.tagName.toLowerCase(),
-                elementText: event.target.textContent.trim(),
-                elementClass: event.target.className,
-                elementTag: event.target.tagName.toLowerCase(),
-                elementHref: event.target.href || null,
-                customData: event.target.getAttribute('data-track-custom') || null
-
+                id: element.id,
+                class: element.className,
+                text: element.innerText
             };
-            
-            bt('track', 
-               'clicked', 
-               elementData, 
-               {onComplete: function() { 
-                   console.log('Click Tracked:', elementData.id, '- Text:', elementData.elementText); 
-               }}
-            );
+
+            // Log the click event for debugging
+            console.log('Element clicked:', elementData);
+
+            // Track the click event
+            bt('track', 'element_click', elementData);
         });
     });
 }
+
+// Initialize the tracking library
+(function (w, d, s, u) {
+    var i = d.createElement(s);
+    i.async = 1;
+    i.src = u;
+    var n = d.getElementsByTagName(s)[0];
+    n.parentNode.insertBefore(i, n);
+})(window, document, 'script', 'https://cdn.boomtrain.com/p13n/' + siteID + '/p13n.min.js');
+
+// Call the setupClickTracking function to initialize click tracking
+setupClickTracking();
 	
 </script>
 	
@@ -898,6 +901,7 @@ function myFunction() {
 
 
 </html>
+
 
 
 
