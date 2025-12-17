@@ -62,9 +62,9 @@ color:#fff;
  }
 /*********************upcome_end****************/
 
-/*********************release****************/
+/*************************************/
 #release {
-background-image: url(../img/12.jpg);
+background-image: url(../img/03a.jpg);
 background-position: center;
 }
 .release_m{
@@ -265,6 +265,7 @@ min-height:330px;
 @media (min-width:1201px) and (max-width:1255px) {
 
  }
+
 
 
 
