@@ -64,7 +64,7 @@ color:#fff;
 
 /*************************************/
 #release {
-background-image: url(../img/03a.jpg);
+background-image: url('https://raw.githubusercontent.com/acothr/bingebox/refs/heads/main/img/03a.jpg');
 background-position: center;
 }
 .release_m{
@@ -265,6 +265,7 @@ min-height:330px;
 @media (min-width:1201px) and (max-width:1255px) {
 
  }
+
 
 
 
