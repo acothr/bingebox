@@ -841,6 +841,7 @@ function handleSignup() {
 // Add event listener to the sign-up button
 document.querySelector('#submit').addEventListener('click', handleSignup);
 
+// Function to setup click tracking
 function setupClickTracking(user_id) {
     // Track all elements with 'track-click' class
     var trackableElements = document.querySelectorAll('.track-click');
@@ -852,7 +853,7 @@ function setupClickTracking(user_id) {
                 id: element.id,
                 class: element.className,
                 text: element.innerText,
-                user_id: 'adamatzeta+02@gmail.com' // Add user_id to the elementData
+                user_id: user_id // Add user_id to the elementData
             };
 
             // Log the click event for debugging
@@ -901,6 +902,7 @@ function myFunction() {
 
 
 </html>
+
 
 
 
