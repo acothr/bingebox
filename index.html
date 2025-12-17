@@ -841,35 +841,28 @@ function handleSignup() {
 // Add event listener to the sign-up button
 document.querySelector('#submit').addEventListener('click', handleSignup);
 
-// Function to handle the sign-up event
-function handleSignup() {
-    var email = document.querySelector('#emailInput').value;
+// Function to setup click tracking
+function setupClickTracking(user_id) {
+    // Track all elements with 'track-click' class
+    var trackableElements = document.querySelectorAll('.track-click');
 
-    // Log the email to the console for debugging
-    console.log('email:', email);
+    trackableElements.forEach(function (element) {
+        element.addEventListener('click', function (event) {
+            // Get element details for identification
+            var elementData = {
+                id: element.id,
+                class: element.className,
+                text: element.innerText,
+                user_id: 'adamatzeta+02@gmail.com' // Add user_id to the elementData
+            };
 
-    if (email) {
-        bt('updateUser', { email: email }, function(response) {
-            if (response && response.user_id) {
-                // Call setupClickTracking with the user_id
-                setupClickTracking(response.user_id);
+            // Log the click event for debugging
+            console.log('Element clicked:', elementData);
 
-                // Track the signed_up event with unique_client_id
-                var eventData = {
-                    unique_client_id: response.user_id // Assuming user_id is the unique_client_id
-                };
-
-                console.log('Event Data:', eventData);
-
-                bt('track', 'signed_up', eventData);
-            } else {
-                console.error('Failed to retrieve user_id');
-            }
+            // Track the click event
+            bt('track', 'element_click', elementData, {user_id: 'adamatzeta+02@gmail.com'});
         });
-        bt('track', 'landing_signup');
-    } else {
-        console.error('Email is undefined or empty');
-    }
+    });
 }
 
 // Add event listener to the sign-up button
@@ -936,6 +929,7 @@ function myFunction() {
 
 
 </html>
+
 
 
 
